@@ -1,4 +1,5 @@
 class Api::ScoresController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   
   def index
     @scores = Score.all.sort_by {|obj| obj["points"]}
