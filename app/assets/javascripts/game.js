@@ -39,25 +39,9 @@ Game.prototype = {
       this.ctx.fillText("Game Over", parseInt(this.ctx.canvas.style.width.slice(0,-2))/4,200);
       clearInterval(this.level.mainInterval);
       clearInterval(this.playInterval);
-      var that = this;
       
       this.gameRecord.score = this.level.score;
       this.gameRecord.popUpModal();
-      
-      // setTimeout(function(){
-//         var c = that.ctx.canvas.getContext('2d');
-//         var newGame = new Game(c, WINDOW_HEIGHT, WINDOW_WIDTH);
-//         newGame.prepare();
-//
-//         window.addEventListener("mousedown", function init(event) {
-//           window.removeEventListener("mousedown", init, false);
-//           gamePlay();
-//         }, false);
-//
-//         function gamePlay() {
-//           newGame.play();
-//         }
-//       }, 3000);
     }
   },
   prepare: function(){

@@ -7,14 +7,11 @@ function Record(height, width){
   this.score;
 };
 
-var brentsFunction = function(){
-  alert("hi brent");
-};
-
 Record.prototype = {
   popUpModal: function(){
     var div = document.createElement("div");
     div.className += "modal";
+    div.id = "popUpModal";
     div.style.right = ((this.width / 2) - HALF_WIDTH_OF_MODAL) + "px";
     div.style.top = (this.height / 2) + "px";
     div.innerHTML = "<br>" + "Your Score : " + this.score + "<br><br>";
@@ -62,56 +59,46 @@ Record.prototype = {
     var gamerName = document.getElementById("gamerName").value;
     
     $.ajax({
-      url: "http://localhost:3000/api/scores.json",
-      type: "GET",
-      dataType: "jsonp",
+      url: "/api/scores.json",
+      type: "POST",
+      dataType: "json",
       data: {
-        callback: function(){alert("called - back")}
+        score: {
+          points: this.score,
+          player_name: gamerName
+        }
       },
       success:function(resp){
-        debugger
+        $.ajax({
+          url: "/api/scores.json",
+          type: "GET",
+          dataType: "json",
+          success: function(){
+            document.getElementById('popUpModal').remove();
+            
+            var canvas = document.getElementById("bird-game"); 
+            var c = canvas.getContext('2d'); 
+          
+            var newGame = new Game(c, WINDOW_HEIGHT, WINDOW_WIDTH);
+            newGame.prepare();
+
+            window.addEventListener("mousedown", function init(event) {
+              window.removeEventListener("mousedown", init, false);
+              gamePlay();
+            }, false);
+
+            function gamePlay() {
+              newGame.play();
+            }
+          },
+          error: function(){
+            console.log("Unable to retrieve all the Scores from database.")
+          }
+        });
       },
       error: function(resp){
-        debugger
+        console.log("Something happened and your score was not saved.")
       }
     })
-    
-    // var gamerName = document.getElementById("gamerName").value;
-//     var method = "POST";
-//     var url = "http://localhost:3000/api/scores";
-//     var data = '"score": {"player_name": "' + gamerName + '", "points": "' + this.score + '"}';
-//     var callback = {Function};
-//     var errback = {Function};
-//
-//     var req;
-//
-//         if(XMLHttpRequest) {
-//             req = new XMLHttpRequest();
-//
-//             if('withCredentials' in req) {
-//                 req.open(method, url, true);
-//                 req.onerror = errback;
-//                 req.onreadystatechange = function() {
-//                     if (req.readyState === 4) {
-//                         if (req.status >= 200 && req.status < 400) {
-//                             callback(req.responseText);
-//                         } else {
-//                             errback(new Error('Response returned with non-OK status'));
-//                         }
-//                     }
-//                 };
-//                 req.send(data);
-//             }
-//         } else if(XDomainRequest) {
-//             req = new XDomainRequest();
-//             req.open(method, url);
-//             req.onerror = errback;
-//             req.onload = function() {
-//                 callback(req.responseText);
-//             };
-//             req.send(data);
-//         } else {
-//             errback(new Error('CORS not supported'));
-//         }
   },
 };
