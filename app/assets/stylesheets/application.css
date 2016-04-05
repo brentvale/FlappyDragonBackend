@@ -99,14 +99,15 @@ ul.high-score-list{
  padding-left:0;
 }
 .left-span, .right-span{
-  width: 48%;
   display:inline-block;
 }
 .left-span{
+  width: 58%;
   left:0;
   text-align:left;
 }
 .right-span{
+  width: 38%;
   right:0;
   text-align:right;
 }
