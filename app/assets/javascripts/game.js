@@ -52,6 +52,7 @@ Game.prototype = {
   play: function(){
     this.level.clearStartInterval();
     this.playInterval = setInterval(this.tick.bind(this), 10);
+    document.getElementById("leaderModalDragonImage").remove();
   },
   restart: function(){
     this.bird = new Bird(START_X, START_Y, this.ctx);

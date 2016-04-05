@@ -16,6 +16,7 @@
 html, body, canvas {
   padding: 0px;
   margin: 0px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 #introText{
   position: absolute;
@@ -96,4 +97,16 @@ ul.high-score-list{
  position:relative;
  margin-top:100%;
  padding-left:0;
+}
+.left-span, .right-span{
+  width: 48%;
+  display:inline-block;
+}
+.left-span{
+  left:0;
+  text-align:left;
+}
+.right-span{
+  right:0;
+  text-align:right;
 }

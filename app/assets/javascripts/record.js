@@ -28,16 +28,16 @@ Record.prototype = {
     
     var optionsDiv = document.createElement("div");
     var submitDiv = document.createElement("div");
-    var replayDiv = document.createElement("div");
+    // var replayDiv = document.createElement("div");
     
     optionsDiv.className += "modal-options";
     submitDiv.className += "modal-submit";
-    replayDiv.className += "modal-replay";
+    // replayDiv.className += "modal-replay";
     submitDiv.id = "submit";
-    replayDiv.id = "replay";
+    // replayDiv.id = "replay";
     
     submitDiv.innerHTML = "Submit";
-    replayDiv.innerHTML = "Replay";
+    // replayDiv.innerHTML = "Replay";
     
     //add elements to DOM
     var divInserted = document.body.appendChild(div);
@@ -45,13 +45,13 @@ Record.prototype = {
     divInserted.appendChild(input);
     var optionsInserted = divInserted.appendChild(optionsDiv);
     optionsInserted.appendChild(submitDiv);
-    optionsInserted.appendChild(replayDiv);
+    // optionsInserted.appendChild(replayDiv);
     
     this.addEventListenersToModal();
   },
   addEventListenersToModal: function(){
     var submitButton = document.getElementById('submit');
-    var replayButton = document.getElementById('replay');
+    // var replayButton = document.getElementById('replay');
     submitButton.addEventListener("click", this.submitScore.bind(this));
     // replayButton.addEventListener("click", );
   },
