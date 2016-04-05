@@ -76,7 +76,7 @@ html, body, canvas {
   height:80%;
   min-height:200px;
   margin-top: 5%;
-  background:url("yellow_dragon_web.png");
+  background: url("yellow_dragon_web.png");
   background-size:contain;
   background-position: center top;
   top: 0;
