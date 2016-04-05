@@ -66,3 +66,34 @@ html, body, canvas {
   cursor:pointer;
   cursor:hand;
 }
+#leaderModal {
+
+}
+#leaderModalDragonImage{
+  width: 20%;
+  margin-left: 40%;
+  height:80%;
+  min-height:200px;
+  margin-top: 5%;
+  background:url("yellow_dragon_web.png");
+  background-size:contain;
+  background-position: center top;
+  top: 0;
+  position:absolute;
+  display:block;
+  border: 1px solid #D8B72A;
+  background-repeat: no-repeat;
+  background-color:black;
+}
+.high-score{
+  color: #D8B72A;
+  text-decoration:none;
+  text-align:center;
+  display:block;
+}
+ul.high-score-list{
+ display:block; 
+ position:relative;
+ margin-top:100%;
+ padding-left:0;
+}

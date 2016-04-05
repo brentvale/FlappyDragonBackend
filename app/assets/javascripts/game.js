@@ -47,6 +47,7 @@ Game.prototype = {
   prepare: function(){
     this.level.clearScreen();
     this.level.createBackgroundParticles();
+    this.leaderboard = new Leaderboard();
   },
   play: function(){
     this.level.clearStartInterval();
