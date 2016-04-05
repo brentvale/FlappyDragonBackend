@@ -43,8 +43,9 @@ Leaderboard.prototype = {
     rightSpan.innerHTML = "SCORE";
     //duplicate needs to be refactored (duplicate of code in loop below)
     ulInserted.appendChild(li)
-    
-    for(var i = 0; i < 10; i ++){
+  
+    var localLimit = (this.scores.length < 10) ? this.scores.length : 10;
+    for(var i = 0; i < localLimit; i ++){
       var li = document.createElement("li");
       li.className += "high-score";
       
