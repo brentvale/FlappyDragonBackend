@@ -74,9 +74,9 @@ html, body, canvas {
   width: 20%;
   margin-left: 40%;
   height:80%;
-  min-height:200px;
+  min-height:450px;
   margin-top: 5%;
-  background: url("yellow_dragon_web.png");
+  background: url("yellow_dragon_web.gif");
   background-size:contain;
   background-position: center top;
   top: 0;
@@ -85,6 +85,7 @@ html, body, canvas {
   border: 1px solid #D8B72A;
   background-repeat: no-repeat;
   background-color:black;
+  overflow:hidden;
 }
 .high-score{
   color: #D8B72A;
