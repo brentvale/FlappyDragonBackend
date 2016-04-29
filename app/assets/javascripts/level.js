@@ -54,8 +54,8 @@ Level.prototype = {
     this.backgroundParticlesTick(); 
   },
   backgroundAndPipesTick: function(){
-    this.handlePipes();
     this.handleBackgroundParticles();
+    this.handlePipes();
   },
   backgroundParticlesTick: function(){
     this.startInterval = setInterval(this.handleBackgroundParticlesIntro.bind(this), 15);
@@ -93,10 +93,17 @@ Level.prototype = {
     for(var i = 0; i < 3; i++){
       var pipe = this.pipes[i];
       this.ctx.beginPath();
-      this.ctx.fillStyle = "green";
+      this.ctx.fillStyle = "#000060";
       this.ctx.fillRect(pipe.x, 0, PIPE_WIDTH, pipe.gap);
       this.ctx.fillRect(pipe.x, (pipe.gap + HOLE_HEIGHT), PIPE_WIDTH, this.height);
       this.ctx.fill();
+      
+      this.ctx.beginPath();
+      this.ctx.lineWidth="4";
+      this.ctx.strokeStyle="#D8B72A";
+      this.ctx.rect(pipe.x, 0, PIPE_WIDTH, pipe.gap);
+      this.ctx.rect(pipe.x, (pipe.gap + HOLE_HEIGHT), PIPE_WIDTH, this.height);
+      this.ctx.stroke();
     }
   },
   movePipes: function(){
